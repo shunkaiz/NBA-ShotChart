@@ -20,7 +20,7 @@ export class Main extends React.Component{
     render(){
         return(
             <div className='dashBoard'>
-                <Profile/>
+                <Profile playerInfo = {this.state.playerInfo} />
                 <ShotChart playerId={this.state.playerId}/>
             </div>
 
