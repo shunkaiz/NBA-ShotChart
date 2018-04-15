@@ -1,6 +1,8 @@
 import React from 'react';
 import {ShotChart} from "./ShotChart";
 import nba from 'nba'
+import {Profile} from "./Profile";
+
 export class Main extends React.Component{
     state = {
         playerId : nba.findPlayer('Lebron James').playerId,
@@ -13,15 +15,15 @@ export class Main extends React.Component{
            const playerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
            this.setState({playerInfo});
         });
-
-
     }
 
     render(){
-        const id = 2544;
         return(
+            <div className='dashBoard'>
+                <Profile/>
+                <ShotChart playerId={this.state.playerId}/>
+            </div>
 
-            <ShotChart playerId={this.state.playerId}/>
         );
     }
 
