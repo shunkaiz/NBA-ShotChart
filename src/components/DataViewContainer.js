@@ -1,13 +1,15 @@
 import React from 'react';
 import {ShotChart} from "./ShotChart";
 import {CountSlider} from "./CountSlider";
-import { Radio } from 'antd';
+import { Radio, Col, Row, Switch, Icon } from 'antd';
+
 const RadioGroup = Radio.Group;
 
 export class DataViewContainer extends React.Component{
     state = {
         minCount : 2,
-        charType : 'hexbin'
+        charType : 'hexbin',
+        disPlayToolTip : true
     }
 
     onCountSliderChange = (val) =>{
@@ -18,16 +20,39 @@ export class DataViewContainer extends React.Component{
         this.setState({charType:val.target.value});
     }
 
+    onToolTipChange = (val) =>{
+        this.setState({disPlayToolTip : val});
+        console.log(val);
+    }
     render(){
         return(
             <div className='dataView'>
-                <ShotChart playerId={this.props.playerId} minCount = {this.state.minCount} charType = {this.state.charType}/>
+                <ShotChart playerId={this.props.playerId}
+                           minCount = {this.state.minCount}
+                           charType = {this.state.charType}
+                           toolTip = {this.state.disPlayToolTip}/>
                 <div className='filters'>
-                    <CountSlider onCountSliderChange ={this.onCountSliderChange}/>
-                    <RadioGroup onChange={this.onChartTypeChange}>
-                        <Radio value={'hexbin'}>Hexbin</Radio>
-                        <Radio value={'scatter'}>Scatter</Radio>
-                    </RadioGroup>
+                    {this.state.charType === 'hexbin' ? <CountSlider onCountSliderChange ={this.onCountSliderChange}/>
+                    : null
+                    }
+                    <br/>
+                    <Row>
+                        <Col span={12}>
+                            <RadioGroup onChange={this.onChartTypeChange}>
+                                <Radio value={'hexbin'}>Hexbin</Radio>
+                                <Radio value={'scatter'}>Scatter</Radio>
+                            </RadioGroup>
+                        </Col>
+                        <Col span={4}>
+                            <Switch checkedChildren= 'On'
+                                    unCheckedChildren= 'Off'
+                                    onChange={this.onToolTipChange}
+
+                                    defaultChecked />
+                        </Col>
+                    </Row>
+
+
                 </div>
             </div>
 

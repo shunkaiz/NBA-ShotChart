@@ -30,7 +30,7 @@ export class ShotChart extends React.Component {
             courtSelection.html('');
             const chart_court = court().width(500);
             const chart_shots = shots().shotRenderThreshold(this.props.minCount).
-            displayToolTips(true).displayType(this.props.charType);
+            displayToolTips(this.props.toolTip).displayType(this.props.charType);
             courtSelection.call(chart_court);
             courtSelection.datum(final_shots).call(chart_shots);
         });
