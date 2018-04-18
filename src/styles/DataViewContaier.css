@@ -1,4 +1,8 @@
 .dataView{
-    width: 100%;
+    width: 80%;
+}
 
+.filters{
+    width: 80%;
+    margin: auto;
 }
