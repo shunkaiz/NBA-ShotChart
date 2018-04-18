@@ -6,4 +6,5 @@
     border: 3px solid moccasin;
     border-radius: 10px;
     margin-top: 40px;
+    overflow: hidden;
 }
