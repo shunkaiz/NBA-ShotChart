@@ -1,3 +1,12 @@
 .searchBar{
     width: 750px
 }
+
+.player-option-image {
+    height: 32px;
+    margin-right: 20px;
+}
+
+.player-option-label {
+    font-size: 15px;
+}
