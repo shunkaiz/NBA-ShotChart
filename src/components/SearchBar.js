@@ -3,9 +3,7 @@ import { AutoComplete, Input, Icon } from 'antd';
 import nba from 'nba';
 import { PROFILE_PIC_URL_PREFIX } from '../constants';
 
-function onSelect(value) {
-    console.log('onSelect', value);
-}
+
 
 export class SearchBar extends React.Component {
     state = {
@@ -13,13 +11,15 @@ export class SearchBar extends React.Component {
     }
 
     handleSearch = (value) => {
-        //console.log(nba.searchPlayers(value)[0].firstName);
+        //console.log(...nba.searchPlayers(value));
         this.setState({
             dataSource: !value ? [] :
                 nba.searchPlayers(value).map( (player) => (player.fullName))
         });
     }
-
+    onSelect = (value) =>{
+        this.props.updatePlayerInfo(value);
+    }
     render() {
         window.nba = nba;
         const { dataSource } = this.state;
@@ -28,7 +28,7 @@ export class SearchBar extends React.Component {
                 className = 'searchBar'
                 size = 'large'
                 dataSource={dataSource}
-                onSelect={onSelect}
+                onSelect={this.onSelect}
                 onSearch={this.handleSearch}
                 placeholder="Type NBA player name"
             >
