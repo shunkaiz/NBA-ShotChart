@@ -13,16 +13,15 @@ export class SearchBar extends React.Component {
     }
 
     handleSearch = (value) => {
+        //console.log(nba.searchPlayers(value)[0].firstName);
         this.setState({
-            dataSource: !value ? [] : [
-                value,
-                value + value,
-                value + value + value,
-            ],
+            dataSource: !value ? [] :
+                nba.searchPlayers(value).map( (player) => (player.fullName))
         });
     }
 
     render() {
+        window.nba = nba;
         const { dataSource } = this.state;
         return (
             <AutoComplete
