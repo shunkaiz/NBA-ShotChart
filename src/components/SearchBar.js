@@ -8,11 +8,10 @@ const Option = AutoComplete.Option;
 export class SearchBar extends React.Component {
     state = {
         dataSource: [],
-    }
+    };
 
     handleSearch = (value) => {
         //console.log(...nba.searchPlayers(value));
-
         this.setState({
             dataSource: !value ? [] :
                 nba.searchPlayers(value).map( ({ fullName, playerId }) =>
@@ -22,10 +21,10 @@ export class SearchBar extends React.Component {
                     </Option>
                     ),
                 });
-    }
+    };
     onSelect = (value) =>{
         this.props.updatePlayerInfo(value);
-    }
+    };
     render() {
         window.nba = nba;
         const { dataSource } = this.state;

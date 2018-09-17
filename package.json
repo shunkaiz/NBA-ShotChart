@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.4.1",
+    "antd": "^3.9.2",
     "d3-shotchart": "0.0.2",
     "lodash": "^4.17.5",
     "nba": "^4.2.2",
