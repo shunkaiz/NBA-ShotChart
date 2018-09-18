@@ -37,6 +37,8 @@ export class Profile extends React.Component{
                     (<div>
                         <h2>{this.props.playerInfo.playerName}</h2>
                         <img src={`${PEOPLE_PIC_URL_PREFIX}/${playerId}.png`} className='profilePic'/>
+                        <AddPlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
+                                         addPlayerHandler = {this.handleAddPlayer}/>
                     </div>)
                     :(<PlayerInfoTable playerInfo = {this.props.playerInfo}/>)}
             </div>
