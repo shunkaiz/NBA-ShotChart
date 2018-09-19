@@ -7,7 +7,7 @@ import {DEFAULT_SEARCH_PLAER} from '../constants'
 export class Main extends React.Component{
     state = {
         playerInfo : {
-            playerId : nba.findPlayer(DEFAULT_SEARCH_PLAER).playerId
+            playerId: 1
         }
     };
 
@@ -24,9 +24,24 @@ export class Main extends React.Component{
 
     updatePlayerInfo = (playerName) =>{
         nba.stats.playerInfo({ PlayerID: nba.findPlayer(playerName).playerId }).then((info)=>{
-            console.log(info);
             const playerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
-            this.setState({playerInfo});
+            if (!'comparePlayerInfo' in this.state)
+                this.setState({playerInfo});
+            else{
+                if (this.state.onSelected === 1) {
+                    this.setState(prev => ({
+                        playerInfo : prev.playerInfo,
+                        comparePlayerInfo: playerInfo,
+                        onSelected: 1
+                    }));
+                }
+                else
+                    this.setState(prev=>({
+                        playerInfo : playerInfo,
+                        comparePlayerInfo: prev.comparePlayerInfo,
+                        onSelected : prev.onSelected
+                    }));
+            }
         });
     };
 
@@ -34,18 +49,35 @@ export class Main extends React.Component{
         nba.stats.playerInfo({ PlayerID: nba.findPlayer(playerName).playerId }).then((info)=>{
             const newPlayerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
             this.setState(prev=>({
-                ...prev.playerInfo,
-                comparePlayer : newPlayerInfo
+                playerInfo : prev.playerInfo,
+                comparePlayerInfo : newPlayerInfo,
+                onSelected: 1
             }));
         });
-    }
+    };
+
+    removeComparePlayer = () =>{
+          this.setState(prev=>({
+              ...prev.playerInfo
+          }));
+    };
+
+    changeSelectedPlayer = (val) =>{
+        this.setState(prev =>({
+            ...prev,
+            onSelected : val
+        }));
+    };
+
 
     render(){
         return(
             <div className='dashBoard'>
                 <div className='searchBlock'><SearchBar updatePlayerInfo = {this.updatePlayerInfo}/></div>
                 <div className='player'>
-                    <Profile playerInfo = {this.state.playerInfo} addComparePlayer = {this.addComparePlayer} />
+                    <Profile {...this.state} addComparePlayer = {this.addComparePlayer} removeComparePlayer = {this.removeComparePlayer}
+                             changeSelectedPlayer = {this.changeSelectedPlayer}
+                    />
                     {/*<DataViewContainer playerId={this.state.playerInfo.playerId}/>*/}
                 </div>
             </div>
