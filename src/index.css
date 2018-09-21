@@ -6,6 +6,7 @@
 @import "styles/DataViewContaier.css";
 @import "~antd/dist/antd.css";
 @import "styles/SearchBar.css";
+@import "styles/CompareShotChart.css";
 body{
   margin: 0;
   padding: 0;

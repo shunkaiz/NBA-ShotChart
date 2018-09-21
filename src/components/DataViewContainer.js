@@ -1,7 +1,8 @@
 import React from 'react';
 import {ShotChart} from "./ShotChart";
+import {CompareShotChart} from "./CompareShotChart"
 import {CountSlider} from "./CountSlider";
-import { Radio, Col, Row, Switch, Icon } from 'antd';
+import { Radio, Col, Row, Switch } from 'antd';
 import _ from 'lodash'
 const RadioGroup = Radio.Group;
 
@@ -10,27 +11,41 @@ export class DataViewContainer extends React.Component{
         minCount : 2,
         charType : 'hexbin',
         disPlayToolTip : true
-    }
+    };
 
     onCountSliderChange = (val) =>{
         this.setState({minCount : val});
-    }
+    };
 
     onChartTypeChange = (val) => {
         this.setState({charType:val.target.value});
-    }
+    };
 
     onToolTipChange = (val) =>{
         this.setState({disPlayToolTip : val});
         console.log(val);
-    }
+    };
     render(){
+        console.log('dataview changed');
+        console.log(this.props.comparePlayerInfo);
         return(
             <div className='dataView'>
-                <ShotChart playerId={this.props.playerId}
-                           minCount = {this.state.minCount}
-                           charType = {this.state.charType}
-                           toolTip = {this.state.disPlayToolTip}/>
+                <div className={this.props.comparePlayerInfo === undefined?null:'two-player'}>
+                    <ShotChart playerId={this.props.playerInfo.playerId}
+                               minCount = {this.state.minCount}
+                               charType = {this.state.charType}
+                               toolTip = {this.state.disPlayToolTip}
+                    />
+                </div>
+                <div className={this.props.comparePlayerInfo === undefined?null:'two-player'}>
+                {this.props.comparePlayerInfo === undefined ?null:
+                    <CompareShotChart  playerId={this.props.comparePlayerInfo.playerId}
+                                minCount = {this.state.minCount}
+                                charType = {this.state.charType}
+                                toolTip = {this.state.disPlayToolTip}/>
+                    }
+                </div>
+
                 <div className='filters'>
                     {this.state.charType === 'hexbin' ?
                         <CountSlider onCountSliderChange ={_.debounce(this.onCountSliderChange, 500)}/>
@@ -45,6 +60,7 @@ export class DataViewContainer extends React.Component{
                             </RadioGroup>
                         </Col>
                         <Col span={4}>
+                            <span>ToolTips  </span>
                             <Switch checkedChildren= 'On'
                                     unCheckedChildren= 'Off'
                                     onChange={this.onToolTipChange}
@@ -52,11 +68,8 @@ export class DataViewContainer extends React.Component{
                                     defaultChecked />
                         </Col>
                     </Row>
-
-
                 </div>
             </div>
-
         );
     }
 

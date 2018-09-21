@@ -58,17 +58,20 @@ export class Main extends React.Component{
 
     removeComparePlayer = () =>{
           this.setState(prev=>({
-              ...prev.playerInfo
+              prevInfo : prev.playerInfo,
+              comparePlayerInfo: undefined,
+              onSelected : undefined
           }));
     };
 
     changeSelectedPlayer = (val) =>{
-        this.setState(prev =>({
-            ...prev,
-            onSelected : val
-        }));
+        if(this.state.onSelected !== val) {
+            this.setState(prev => ({
+                ...prev,
+                onSelected: val
+            }));
+        }
     };
-
 
     render(){
         return(
@@ -78,7 +81,7 @@ export class Main extends React.Component{
                     <Profile {...this.state} addComparePlayer = {this.addComparePlayer} removeComparePlayer = {this.removeComparePlayer}
                              changeSelectedPlayer = {this.changeSelectedPlayer}
                     />
-                    {/*<DataViewContainer playerId={this.state.playerInfo.playerId}/>*/}
+                    <DataViewContainer {...this.state}/>
                 </div>
             </div>
 

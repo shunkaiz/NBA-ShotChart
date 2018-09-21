@@ -6,3 +6,8 @@
     width: 80%;
     margin: auto;
 }
+
+.two-player{
+    width: 40%;
+    display: inline-block;
+}

@@ -11,10 +11,12 @@ export class Profile extends React.Component{
     };
 
     handleAddPlayer = (playerName) =>{
-        this.props.addComparePlayer(playerName);
-        this.setState({
-            isMultiple: true
-        })
+        if(!this.state.isMultiple) {
+            this.props.addComparePlayer(playerName);
+            this.setState({
+                isMultiple: true
+            })
+        }
     };
 
     handleRemovePlayer = () =>{
@@ -25,7 +27,8 @@ export class Profile extends React.Component{
     };
 
     switchSelection = (val) =>{
-        this.props.changeSelectedPlayer(val);
+        if(this.state.isMultiple)
+            this.props.changeSelectedPlayer(val);
     };
 
     render(){
