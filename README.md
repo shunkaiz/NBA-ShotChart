@@ -9,24 +9,27 @@ if you are a Windows user:
 **node.js:** Binaries, installers, and source tarballs are available at https://nodejs.org/en/download/.
 To check if you have Node.js and npm installed, run this command in your terminal:
 ```
-  node -v
-  npm -v
+node -v
+```
+```
+npm -v
 ```
 If you are a Mac user, you don't need to install any prerequisites
 ### Clone the Repo
 In your command line/terminal, type in:
 ```
-  git clone git@github.com:shunkaiz/NBA-ShotChart.git
+git clone git@github.com:shunkaiz/NBA-ShotChart.git
 ```
 ### Deployment
 In your command line/terminal, type in:
 ```
-  npm start react
+npm start react
 ```
 ## Authors
-  Shunkai Zhang [GitHub](http://github.com/shunkaiz)
+[Shunkai Zhang](http://github.com/shunkaiz)
 ## License
 This project is licensed under the MIT License
 ## Acknowledgments
-* Hat tip to anyone whose code was used
+* React.js development team
 * Mr.Richard from Laioffer
+* Hat tip to anyone whose code was used
