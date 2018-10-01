@@ -5,18 +5,28 @@ NBA is no doubt an exciting sports and produces many famous superstars generatio
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Download Prerequisites
-*node.js:* Binaries, installers, and source tarballs are available at https://nodejs.org/en/download/.
-To check if you have Node.js installed, run this command in your terminal:
-'''
-node -v
-'''
+if you are a Windows user:
+**node.js:** Binaries, installers, and source tarballs are available at https://nodejs.org/en/download/.
+To check if you have Node.js and npm installed, run this command in your terminal:
+```
+  node -v
+  npm -v
+```
+If you are a Mac user, you don't need to install any prerequisites
 ### Clone the Repo
-
-
+In your command line/terminal, type in:
+```
+  git clone git@github.com:shunkaiz/NBA-ShotChart.git
+```
 ### Deployment
-
-
+In your command line/terminal, type in:
+```
+  npm start react
+```
 ## Authors
   Shunkai Zhang [GitHub](http://github.com/shunkaiz)
 ## License
 This project is licensed under the MIT License
+## Acknowledgments
+* Hat tip to anyone whose code was used
+* Mr.Richard from Laioffer
