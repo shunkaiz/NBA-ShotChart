@@ -8,10 +8,25 @@
     background-color: #1D428A;
     height: 55px;
     color: white;
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .App-title {
     font-size: 1.5em;
+    color: white;
+    text-align: center;
+    margin-left: 20px;
+    width: 20%;
+    max-width: 150px;
+}
+
+.Login-box{
+    margin-left: auto;
+    margin-right: 0;
+    width: 50px;
+}
+
+.Tool-bar{
+    width: 60%;
 }
