@@ -38,13 +38,15 @@ export class Profile extends React.Component{
             playerId,
         } = this.props.playerInfo;
 
+
         return(
             <div className='profile'>
                 <div onClick={()=>this.switchSelection(0)} className={this.props.onSelected === 0 ? 'selected-border':null}>
                     <h2>{this.props.playerInfo.playerName}</h2>
                     <img src={`${PEOPLE_PIC_URL_PREFIX}/${playerId}.png`} className='profilePic'/>
-                    <AddPlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
-                                     addPlayerHandler = {this.handleAddPlayer}/>
+                    {window.localStorage.length > 0? < AddPlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
+                        addPlayerHandler = {this.handleAddPlayer}/>:null
+                    }
                 </div>
 
                 {this.state.isMultiple && !(this.props.comparePlayerInfo === undefined)?
