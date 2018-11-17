@@ -1,6 +1,7 @@
 import React from 'react';
 import {ShotChart} from "./ShotChart";
 import {CompareShotChart} from "./CompareShotChart"
+import {MergedShotChart} from "./MergedShotChart";
 import {CountSlider} from "./CountSlider";
 import { Radio, Col, Row, Switch } from 'antd';
 import _ from 'lodash'
@@ -45,7 +46,14 @@ export class DataViewContainer extends React.Component{
                                 toolTip = {this.state.disPlayToolTip}/>
                     }
                 </div>
-
+                <div className={this.props.comparePlayerInfo === undefined?null:'mergedView'}>
+                    {this.props.comparePlayerInfo === undefined ?null:
+                        <MergedShotChart  playerOneId={this.props.playerInfo.playerId}
+                                          playerTwoId={this.props.comparePlayerInfo.playerId}
+                                          charType = {this.state.charType}
+                                          toolTip = {this.state.disPlayToolTip}/>
+                    }
+                </div>
                 <div className='filters'>
                     {this.state.charType === 'hexbin' ?
                         <CountSlider onCountSliderChange ={_.debounce(this.onCountSliderChange, 500)}/>
