@@ -6,3 +6,6 @@ export const SHOOTING_ZONE_LC  = "Left Side Center(LC)";
 export const SHOOTING_ZONE_CT  = "Center(C)";
 export const SHOOTING_ZONE_L  = "Left Side(L)";
 export const SHOOTING_ZONE_R  = "Right Side(R)";
+export const PLAYER_ONE_INDEX = 0;
+export const PLAYER_TWO_INDEX = 1;
+export const MERGED_GRAPH_MIN_COUNT = 4;
