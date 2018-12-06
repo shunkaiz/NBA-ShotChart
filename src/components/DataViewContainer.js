@@ -15,11 +15,16 @@ export class DataViewContainer extends React.Component{
     };
 
     onCountSliderChange = (val) =>{
-        this.setState({minCount : val});
+        this.setState((prevState) =>
+            ({
+                ...prevState,
+                minCount : val}));
     };
 
     onChartTypeChange = (val) => {
-        this.setState({charType:val.target.value});
+        this.setState((prevState) => ({
+            ...prevState,
+            charType:val.target.value}));
     };
 
     onToolTipChange = (val) =>{
@@ -46,18 +51,10 @@ export class DataViewContainer extends React.Component{
                                 toolTip = {this.state.disPlayToolTip}/>
                     }
                 </div>
-                <div className={this.props.comparePlayerInfo === undefined?null:'mergedView'}>
-                    {this.props.comparePlayerInfo === undefined ?null:
-                        <MergedShotChart  playerOneId={this.props.playerInfo.playerId}
-                                          playerTwoId={this.props.comparePlayerInfo.playerId}
-                                          charType = {this.state.charType}
-                                          toolTip = {this.state.disPlayToolTip}/>
-                    }
-                </div>
                 <div className='filters'>
                     {this.state.charType === 'hexbin' ?
                         <CountSlider onCountSliderChange ={_.debounce(this.onCountSliderChange, 500)}/>
-                    : null
+                        : null
                     }
                     <br/>
                     <Row>
@@ -77,6 +74,14 @@ export class DataViewContainer extends React.Component{
                         </Col>
                     </Row>
                 </div>
+                <div className={this.props.comparePlayerInfo === undefined?null:'mergedView'}>
+                    {this.props.comparePlayerInfo === undefined ?null:
+                        <MergedShotChart  playerOneId={this.props.playerInfo.playerId}
+                                          playerTwoId={this.props.comparePlayerInfo.playerId}
+                                          />
+                    }
+                </div>
+
             </div>
         );
     }

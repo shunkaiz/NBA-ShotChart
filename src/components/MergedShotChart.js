@@ -7,27 +7,44 @@ import PropTypes from 'prop-types';
 import * as constants from "../constants";
 import {PLAYER_ONE_INDEX} from "../constants";
 import {PLAYER_TWO_INDEX} from "../constants";
+import {DEFAULT_SEARCH_PLAER} from "../constants";
+import {DEFAULT_COMPARE_PLAYER} from "../constants";
 
 window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 
 export class MergedShotChart extends React.Component {
-    static propTypes = {
-        playerId: PropTypes.number,
-        minCount: PropTypes.number,
-        charType : PropTypes.string
-    };
-
     state = {
         mount : false
     };
 
-    player1 = new Map();
-    player2 = new Map();
+    constructor(){
+        super();
+        this.player1 = new Map();
+        this.player2 = new Map();
+        this.init = true;
+    }
 
     componentDidMount(){
         this.setState({mount : true});
     }
 
+
+    shouldComponentUpdate(nextProps){
+        // prevent updating merged chart when switching the char type of other charts
+        if(this.props.playerOneId === 2544 && this.props.playerTwoId === 201939){
+            if(this.init === true){
+                this.init = false;
+                return true;
+            }
+        }
+        if(this.props.playerOneId !== nextProps.playerOneId){
+            return true;
+        }
+        else if(this.props.playerTwoId !== nextProps.playerTwoId){
+            return true;
+        }
+        return false;
+    }
 
     componentDidUpdate(){
         let playerOneShotDetails = initMap();

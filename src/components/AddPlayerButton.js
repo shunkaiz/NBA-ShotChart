@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd';
 import '../styles/AddPlayerButton.css'
-import {DEFAULT_SEARCH_PLAER} from '../constants'
+import {DEFAULT_COMPARE_PLAYER} from "../constants";
 export class AddPlayerButton extends React.Component{
 
     render(){
@@ -9,7 +9,7 @@ export class AddPlayerButton extends React.Component{
             <div className={'container'}>
                 <img src={this.props.logoUrl} className={'teamLogo'} />
                 <Button type="dashed" ghost shape={'circle'} size={'default'} className={'addButton'}
-                        onClick={()=>this.props.addPlayerHandler(DEFAULT_SEARCH_PLAER)}><b>+</b></Button>
+                        onClick={()=>this.props.addPlayerHandler(DEFAULT_COMPARE_PLAYER)}><b>+</b></Button>
             </div>
 
         )
