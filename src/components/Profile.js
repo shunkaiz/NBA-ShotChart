@@ -32,12 +32,13 @@ export class Profile extends React.Component{
     };
 
     render(){
-        console.log(this.props.comparePlayerInfo);
+        //console.log(this.props.comparePlayerInfo);
         const {
             teamAbbreviation,
             playerId,
         } = this.props.playerInfo;
 
+        //console.log(playerId);
 
         return(
             <div className='profile'>

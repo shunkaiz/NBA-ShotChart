@@ -7,12 +7,6 @@ import PropTypes from 'prop-types';
 window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 
 export class CompareShotChart extends React.Component {
-    static propTypes = {
-        playerId: PropTypes.number,
-        minCount: PropTypes.number,
-        charType : PropTypes.string
-    }
-
     state = {
         mount : false
     };

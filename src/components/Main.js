@@ -4,6 +4,9 @@ import {Profile} from "./Profile";
 import {DataViewContainer} from "./DataViewContainer";
 import {SearchBar} from "./SearchBar";
 import {DEFAULT_SEARCH_PLAER} from '../constants'
+
+import  {store} from '../index'
+
 export class Main extends React.Component{
     state = {
         playerInfo : {
@@ -14,6 +17,12 @@ export class Main extends React.Component{
     componentDidMount(){
         // update player's information based on the given id
         this.updatePlayerInfo(DEFAULT_SEARCH_PLAER);
+
+        store.dispatch({
+            type: 'action',
+            text: 'first redux'
+        });
+        console.log(store.getState());
     }
 
     componentDidUpdate(){
@@ -24,10 +33,18 @@ export class Main extends React.Component{
 
     updatePlayerInfo = (playerName) =>{
         nba.stats.playerInfo({ PlayerID: nba.findPlayer(playerName).playerId }).then((info)=>{
-            const playerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
+            //const playerInfo = Object.assign(info.commonPlayerInfo[0], info.playerHeadlineStats[0]);
+
+            const playerInfo = info.playerHeadlineStats[0];
+            playerInfo.teamAbbreviation = info.commonPlayerInfo[0].teamAbbreviation;
+
+
+            // console.log(info.commonPlayerInfo[0]);
+            // console.log(info.playerHeadlineStats[0]);
             if (!'comparePlayerInfo' in this.state)
                 this.setState({playerInfo});
             else{
+                // bad design use redux
                 if (this.state.onSelected === 1) {
                     this.setState(prev => ({
                         playerInfo : prev.playerInfo,
@@ -71,6 +88,7 @@ export class Main extends React.Component{
                 onSelected: val
             }));
         }
+
     };
 
     render(){

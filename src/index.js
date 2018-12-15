@@ -6,6 +6,9 @@ import registerServiceWorker from './registerServiceWorker';
 import {Route, BrowserRouter, Switch} from "react-router-dom"
 import LoginExport from './components/Login'
 import {Logout} from './components/Logout'
+
+import  {createStore} from 'redux'
+
 function Routes() {
     return(
         <BrowserRouter>
@@ -24,6 +27,17 @@ function Project(){
     )
 }
 
+const projectReducer = (state, action) =>{
+  switch (action.type) {
+      default:
+          return {
+              id: 1,
+              name: 'lebron'
+          };
+  }
+};
+
+export const store = createStore(projectReducer);
 
 ReactDOM.render(<Project/>, document.getElementById('root'));
 registerServiceWorker();

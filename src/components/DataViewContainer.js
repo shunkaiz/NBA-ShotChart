@@ -32,8 +32,8 @@ export class DataViewContainer extends React.Component{
         console.log(val);
     };
     render(){
-        console.log('dataview changed');
-        console.log(this.props.comparePlayerInfo);
+        //console.log('dataview changed');
+        //console.log(this.props.comparePlayerInfo);
         return(
             <div className='dataView'>
                 <div className={this.props.comparePlayerInfo === undefined?null:'two-player'}>
