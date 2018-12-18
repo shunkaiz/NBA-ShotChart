@@ -8,7 +8,7 @@ window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 
 export class ShotChart extends React.Component {
 
-    componentDidUpdate(){
+    componentDidMount(){
         console.log('shotchart is updated');
         nba.stats.shots({
             PlayerID: this.props.playerId

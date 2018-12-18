@@ -7,30 +7,22 @@ import {getProfileData} from "../dataHelper";
 
 export class Profile extends React.Component{
 
-    state = {
-        isMultiple : false,
-    };
+    // state = {
+    //     isMultiple : false,
+    // };
 
     handleAddPlayer = (playerName) =>{
-        if(!this.state.isMultiple) {
-            this.props.addComparePlayer(playerName);
-            this.setState({
-                isMultiple: true
-            })
-        }
+        // if(!this.state.isMultiple) {
+        //     this.props.addComparePlayer(playerName);
+        //     this.setState({
+        //         isMultiple: true
+        //     })
+        // }
         this.addPlayerAction(playerName);
     };
 
     addPlayerAction = (playerName) =>{
-        // const {store} = this.context;
-        //         // getProfileData(playerName).then((info)=>{
-        //         //     console.log(info);
-        //         //     store.dispatch({
-        //         //         type: ADD_PLAYER_ACTION,
-        //         //         playerInfo: info
-        //         //     });
-        //         // });
-        //store.subscribe(this.render);
+        this.props.addStorePlayer(playerName);
     };
 
 
@@ -43,8 +35,8 @@ export class Profile extends React.Component{
     };
 
     switchSelection = (val) =>{
-        if(this.state.isMultiple)
-            this.props.changeSelectedPlayer(val);
+        // if(this.state.isMultiple)
+        //     this.props.changeSelectedPlayer(val);
     };
 
     render(){
@@ -65,14 +57,14 @@ export class Profile extends React.Component{
                     }
                 </div>
 
-                {this.state.isMultiple && !(this.props.comparePlayerInfo === undefined)?
-                    (<div onClick={()=>this.switchSelection(1)} className={this.props.onSelected === 1 ? 'selected-border':null}>
-                        <h2>{this.props.comparePlayerInfo.playerName}</h2>
-                        <img src={`${PEOPLE_PIC_URL_PREFIX}/${this.props.comparePlayerInfo.playerId}.png`} className='profilePic'/>
-                        <RemovePlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${this.props.comparePlayerInfo.teamAbbreviation}_logo.svg`}
-                                         removePlayerHandler = {this.handleRemovePlayer}/>
-                    </div>)
-                    :(<PlayerInfoTable playerInfo = {this.props.playerInfo}/>)}
+                {/*{this.state.isMultiple && !(this.props.comparePlayerInfo === undefined)?*/}
+                    {/*(<div onClick={()=>this.switchSelection(1)} className={this.props.onSelected === 1 ? 'selected-border':null}>*/}
+                        {/*<h2>{this.props.comparePlayerInfo.playerName}</h2>*/}
+                        {/*<img src={`${PEOPLE_PIC_URL_PREFIX}/${this.props.comparePlayerInfo.playerId}.png`} className='profilePic'/>*/}
+                        {/*<RemovePlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${this.props.comparePlayerInfo.teamAbbreviation}_logo.svg`}*/}
+                                         {/*removePlayerHandler = {this.handleRemovePlayer}/>*/}
+                    {/*</div>)*/}
+                    {/*:(<PlayerInfoTable playerInfo = {this.props.playerInfo}/>)}*/}
             </div>
         );
     }
