@@ -7,6 +7,8 @@ const getProfileData = (playerName) =>{
         nba.stats.playerInfo({ PlayerID: nba.findPlayer(playerName).playerId }).then((info)=> {
             const playerInfo = info.playerHeadlineStats[0];
             playerInfo.teamAbbreviation = info.commonPlayerInfo[0].teamAbbreviation;
+            playerInfo.weight = info.commonPlayerInfo[0].weight;
+            playerInfo.height = info.commonPlayerInfo[0].height;
             resolve(playerInfo);
         });
     });

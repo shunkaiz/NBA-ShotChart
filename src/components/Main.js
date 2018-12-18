@@ -119,7 +119,7 @@ class MainRaw extends React.Component{
             <div className='dashBoard'>
                 <div className='searchBlock'><SearchBar updatePlayerInfo = {this.updatePlayerInfo}/></div>
                 {this.props.players.map((player, idx) => {
-                    console.log(player);
+                    //console.log(player);
                     return (<div className='player' id={idx}>
                         <Profile {...player}
                                  addComparePlayer = {this.addComparePlayer}

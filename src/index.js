@@ -38,6 +38,7 @@ const projectReducer = (state = [], action) =>{
     if(action.type === INIT_PLAYER_ACTION){
         console.log(action.playerInfo);
         return[
+
             ...state,
             playerConstructor(action.playerInfo)
         ];
