@@ -1,8 +1,9 @@
 import React from 'react';
 import {AddPlayerButton} from './AddPlayerButton';
 import {RemovePlayerButton} from './RemovePlayerButton'
-import {PEOPLE_PIC_URL_PREFIX, TEAM_PIC_URL_PREFIX} from "../constants";
+import {ADD_PLAYER_ACTION, INIT_PLAYER_ACTION, PEOPLE_PIC_URL_PREFIX, TEAM_PIC_URL_PREFIX} from "../constants";
 import {PlayerInfoTable} from "./PlayerInfoTable";
+import {getProfileData} from "../dataHelper";
 
 export class Profile extends React.Component{
 
@@ -17,7 +18,22 @@ export class Profile extends React.Component{
                 isMultiple: true
             })
         }
+        this.addPlayerAction(playerName);
     };
+
+    addPlayerAction = (playerName) =>{
+        // const {store} = this.context;
+        //         // getProfileData(playerName).then((info)=>{
+        //         //     console.log(info);
+        //         //     store.dispatch({
+        //         //         type: ADD_PLAYER_ACTION,
+        //         //         playerInfo: info
+        //         //     });
+        //         // });
+        //store.subscribe(this.render);
+    };
+
+
 
     handleRemovePlayer = () =>{
         this.props.removeComparePlayer();
@@ -32,13 +48,12 @@ export class Profile extends React.Component{
     };
 
     render(){
-        //console.log(this.props.comparePlayerInfo);
+
+        //console.log(this.props.playerInfo);
         const {
             teamAbbreviation,
             playerId,
         } = this.props.playerInfo;
-
-        //console.log(playerId);
 
         return(
             <div className='profile'>

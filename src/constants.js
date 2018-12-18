@@ -12,3 +12,5 @@ export const PLAYER_TWO_INDEX = 1;
 export const MERGED_GRAPH_MIN_COUNT = 4;
 export const ADD_PLAYER_ACTION = "add player";
 export const REMOVE_PLAYER_ACTION = "remove player";
+export const INIT_PLAYER_ACTION = "init";
+export const UPDATE_PLAYER_ACTION = "modify";

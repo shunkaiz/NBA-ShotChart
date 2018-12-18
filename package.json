@@ -7,8 +7,10 @@
     "d3-shotchart": "0.0.2",
     "lodash": "^4.17.5",
     "nba": "^4.2.2",
+    "prop-types": "^15.6.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.1"

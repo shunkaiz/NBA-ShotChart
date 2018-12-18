@@ -13,20 +13,20 @@ export class TopNavBar extends React.Component{
                 <img src={logo} className="App-logo" alt="logo" />
                 <div className="App-title">Dashboard</div>
 
-                <div className="Tool-bar">
-                    {window.localStorage.length === 0 ?
-                        <Link to="/login">
-                            <div className="Login-box">
-                                <Icon type="user" theme="outlined" style={{fontSize: '25px'}}/>
-                            </div>
-                        </Link> :
-                        <Link to='/logout'>
-                            <div className="Login-box">
-                                <Icon type="logout" theme="outlined" style={{fontSize: '25px'}}/>
-                            </div>
-                        </Link>
-                    }
-                </div>
+                {/*<div className="Tool-bar">*/}
+                    {/*{window.localStorage.length === 0 ?*/}
+                        {/*<Link to="/login">*/}
+                            {/*<div className="Login-box">*/}
+                                {/*<Icon type="user" theme="outlined" style={{fontSize: '25px'}}/>*/}
+                            {/*</div>*/}
+                        {/*</Link> :*/}
+                        {/*<Link to='/logout'>*/}
+                            {/*<div className="Login-box">*/}
+                                {/*<Icon type="logout" theme="outlined" style={{fontSize: '25px'}}/>*/}
+                            {/*</div>*/}
+                        {/*</Link>*/}
+                    {/*}*/}
+                {/*</div>*/}
 
 
             </header>
