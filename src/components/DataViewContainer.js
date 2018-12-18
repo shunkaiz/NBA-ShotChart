@@ -8,11 +8,6 @@ import _ from 'lodash'
 const RadioGroup = Radio.Group;
 
 export class DataViewContainer extends React.Component{
-    state = {
-        minCount : 2,
-        charType : 'hexbin',
-        disPlayToolTip : true
-    };
 
     onCountSliderChange = (val) =>{
         this.setState((prevState) =>
@@ -33,14 +28,14 @@ export class DataViewContainer extends React.Component{
     };
     render(){
         //console.log('dataview changed');
-        //console.log(this.props.comparePlayerInfo);
+        console.log(this.props.playerInfo);
         return(
             <div className='dataView'>
                 <div className={this.props.comparePlayerInfo === undefined?null:'two-player'}>
                     <ShotChart playerId={this.props.playerInfo.playerId}
-                               minCount = {this.state.minCount}
-                               charType = {this.state.charType}
-                               toolTip = {this.state.disPlayToolTip}
+                               minCount = {this.props.minCount}
+                               charType = {this.props.charType}
+                               toolTip = {this.props.disPlayToolTip}
                     />
                 </div>
                 <div className={this.props.comparePlayerInfo === undefined?null:'two-player'}>
@@ -52,7 +47,7 @@ export class DataViewContainer extends React.Component{
                     }
                 </div>
                 <div className='filters'>
-                    {this.state.charType === 'hexbin' ?
+                    {this.props.charType === 'hexbin' ?
                         <CountSlider onCountSliderChange ={_.debounce(this.onCountSliderChange, 500)}/>
                         : null
                     }

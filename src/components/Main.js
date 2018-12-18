@@ -8,15 +8,10 @@ import {DEFAULT_SEARCH_PLAER, ADD_PLAYER_ACTION, REMOVE_PLAYER_ACTION, INIT_PLAY
 import {getProfileData} from "../dataHelper";
 
 class MainRaw extends React.Component{
-    state = {
-        playerInfo : {
-            playerId: 1
-        }
-    };
 
     componentDidMount(){
         // update player's information based on the given id
-        this.updatePlayerInfo(DEFAULT_SEARCH_PLAER);
+        //this.updatePlayerInfo(DEFAULT_SEARCH_PLAER);
         // getProfileData(DEFAULT_SEARCH_PLAER).then((info)=>{
         //     console.log(info);
         //     store.dispatch({
@@ -120,14 +115,14 @@ class MainRaw extends React.Component{
                 <div className='searchBlock'><SearchBar updatePlayerInfo = {this.updatePlayerInfo}/></div>
                 {this.props.players.map((player, idx) => {
                     //console.log(player);
-                    return (<div className='player' id={idx}>
+                    return (<div className='player' key={idx}>
                         <Profile {...player}
                                  addComparePlayer = {this.addComparePlayer}
                                  addStorePlayer = {this.props.addPlayer}
                                  removeComparePlayer = {this.removeComparePlayer}
                                  changeSelectedPlayer = {this.changeSelectedPlayer}
                         />
-                        <DataViewContainer {...this.state}/>
+                        <DataViewContainer {...player}/>
                     </div>);
                 })}
 

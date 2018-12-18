@@ -16,23 +16,23 @@ import  {createStore} from 'redux'
 
 
 
-// function Routes() {
-//     return(
-//         <BrowserRouter>
-//             <Switch>
-//                 <Route exact path='/' component={App}/>
-//                 <Route path='/login' component={LoginExport}/>
-//                 <Route path='/logout' component={Logout}/>
-//             </Switch>
-//         </BrowserRouter>
-//     )
-// }
+function Routes() {
+    return(
+        <BrowserRouter>
+            <Switch>
+                <Route exact path='/' component={App}/>
+                <Route path='/login' component={LoginExport}/>
+                <Route path='/logout' component={Logout}/>
+            </Switch>
+        </BrowserRouter>
+    )
+}
 
-// function Project(){
-//     return(
-//         <Routes/>
-//     )
-// }
+function Project(){
+    return(
+        <Routes/>
+    )
+}
 
 const projectReducer = (state = [], action) =>{
     if(action.type === INIT_PLAYER_ACTION){
@@ -69,7 +69,7 @@ console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Project/>
     </Provider>
 
     , document.getElementById('root'));
