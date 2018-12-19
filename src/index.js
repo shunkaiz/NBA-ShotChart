@@ -51,8 +51,14 @@ const projectReducer = (state = [], action) =>{
         ]
     }
     else if(action.type === UPDATE_PLAYER_ACTION){
-        state[action.playerIdx] = action.playerInfo;
-        return state;
+        if(action.playerAttr === "shotCount"){
+            state[action.playerIdx].minCount = action.value;
+            console.log(state[action.playerIdx].minCount);
+        }
+        console.log(state);
+        return [
+            ...state
+        ];
     }
     else if(action.type === REMOVE_PLAYER_ACTION){
         delete state[action.idx];

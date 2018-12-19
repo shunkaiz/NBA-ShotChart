@@ -6,6 +6,7 @@ import {DataViewContainer} from "./DataViewContainer";
 import {SearchBar} from "./SearchBar";
 import {DEFAULT_SEARCH_PLAER, ADD_PLAYER_ACTION, REMOVE_PLAYER_ACTION, INIT_PLAYER_ACTION} from '../constants'
 import {getProfileData} from "../dataHelper";
+import {Controller} from "./Controller";
 
 class MainRaw extends React.Component{
 
@@ -113,8 +114,11 @@ class MainRaw extends React.Component{
         return(
             <div className='dashBoard'>
                 <div className='searchBlock'><SearchBar updatePlayerInfo = {this.updatePlayerInfo}/></div>
+                <div>
+                    <Controller/>
+                </div>
                 {this.props.players.map((player, idx) => {
-                    //console.log(player);
+                    console.log(player);
                     return (<div className='player' key={idx}>
                         <Profile {...player}
                                  addComparePlayer = {this.addComparePlayer}
@@ -122,7 +126,7 @@ class MainRaw extends React.Component{
                                  removeComparePlayer = {this.removeComparePlayer}
                                  changeSelectedPlayer = {this.changeSelectedPlayer}
                         />
-                        <DataViewContainer {...player}/>
+                        <DataViewContainer {...player} playerIdx = {idx}/>
                     </div>);
                 })}
 

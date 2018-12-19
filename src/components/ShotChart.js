@@ -8,8 +8,8 @@ window.d3_hexbin = {hexbin : hexbin}; // workaround library problem
 
 export class ShotChart extends React.Component {
 
-    componentDidMount(){
-        console.log('shotchart is updated');
+
+    updateChart = ()=>{
         nba.stats.shots({
             PlayerID: this.props.playerId
         }).then((response) => {
@@ -22,7 +22,7 @@ export class ShotChart extends React.Component {
                 shot_made_flag: shot.shotMadeFlag,
             }));
 
-            const courtSelection = d3.select("#shot-chart");
+            const courtSelection = d3.select(`#shot-chart${this.props.playerIdx}`);
             courtSelection.html('');
             const chart_court = court().width(500);
             const chart_shots = shots().shotRenderThreshold(this.props.minCount).
@@ -32,39 +32,19 @@ export class ShotChart extends React.Component {
         });
     }
 
+    componentDidMount(){
+        //console.log('shotchart is updated');
+        this.updateChart();
+    }
+
     // test reduce function
-    // componentDidUpdate(){
-    //     console.log('shotchart is updated');
-    //     nba.stats.shots({
-    //         PlayerID: this.props.playerId
-    //     }).then((response) => {
-    //         console.log(response);
-    //         const final_shots = response.shot_Chart_Detail.reduce((res, shot) => {
-    //             if(shot.shotZoneArea === "Right Side Center(RC)") {
-    //                 res.push({
-    //                     x: (shot.locX + 250) / 10,
-    //                     y: (shot.locY + 50) / 10,
-    //                     action_type: shot.actionType,
-    //                     shot_distance: shot.shotDistance,
-    //                     shot_made_flag: shot.shotMadeFlag
-    //                 });
-    //             }
-    //             return res;
-    //     }, []);
-    //
-    //         const courtSelection = d3.select("#shot-chart");
-    //         courtSelection.html('');
-    //         const chart_court = court().width(500);
-    //         const chart_shots = shots().shotRenderThreshold(this.props.minCount).
-    //         displayToolTips(this.props.toolTip).displayType(this.props.charType);
-    //         courtSelection.call(chart_court);
-    //         courtSelection.datum(final_shots).call(chart_shots);
-    //     });
-    // }
+    componentDidUpdate(){
+        this.updateChart();
+    }
 
     render() {
         return (
-            <div id="shot-chart"/>
+            <div className="shot-chart" id={`shot-chart${this.props.playerIdx}`}/>
         );
     }
 }

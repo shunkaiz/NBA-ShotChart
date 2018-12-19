@@ -16,3 +16,7 @@
     width: 80%;
     display: inline-block;
 }
+
+.dropdown-link{
+    display: inline-block;
+}

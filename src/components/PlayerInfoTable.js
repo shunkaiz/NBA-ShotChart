@@ -10,6 +10,7 @@ export class PlayerInfoTable extends React.Component{
             pts, reb, ast, pie,
         } = this.props.playerInfo;
         return(
+
             <div>
                 <div className="profile-entry">
                     <div className="profile-entry-left">Height</div>
