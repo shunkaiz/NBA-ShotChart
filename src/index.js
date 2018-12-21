@@ -36,15 +36,14 @@ function Project(){
 
 const projectReducer = (state = [], action) =>{
     if(action.type === INIT_PLAYER_ACTION){
-        console.log(action.playerInfo);
+        // console.log(action.playerInfo);
         return[
-
             ...state,
             playerConstructor(action.playerInfo)
         ];
     }
     else if(action.type === ADD_PLAYER_ACTION){
-        console.log(action.playerInfo);
+        // console.log(action.playerInfo);
         return [
             ...state,
             playerConstructor(action.playerInfo)
@@ -55,7 +54,13 @@ const projectReducer = (state = [], action) =>{
             state[action.playerIdx].minCount = action.value;
             console.log(state[action.playerIdx].minCount);
         }
-        console.log(state);
+        else if(action.playerAttr === "shotType"){
+            state[action.playerIdx].charType = action.value;
+        }
+        else if(action.playerAttr === "shotTip"){
+            state[action.playerIdx].disPlayToolTip = !state[action.playerIdx].disPlayToolTip;
+        }
+        //console.log(state);
         return [
             ...state
         ];

@@ -30,7 +30,7 @@ export class ShotChart extends React.Component {
             courtSelection.call(chart_court);
             courtSelection.datum(final_shots).call(chart_shots);
         });
-    }
+    };
 
     componentDidMount(){
         //console.log('shotchart is updated');

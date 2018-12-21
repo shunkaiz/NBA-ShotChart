@@ -17,6 +17,13 @@ class RawController extends React.Component{
         this.props.changeShotCount(val, this.onSelected);
     };
 
+    onChartTypeChange = (val) =>{
+        this.props.changeShotType(val.target.value, this.onSelected);
+    };
+
+    onToolTipChange = () => {
+        this.props.toggleShotTips(this.onSelected);
+    };
 
     render(){
         const onClick = ({ key }) => {
@@ -78,8 +85,22 @@ const mapDispatchToProps = (dispatch)=>{
                 playerIdx: idx,
                 value: count
             })
+        },
+        changeShotType: (type, idx) =>{
+            dispatch({
+                type: UPDATE_PLAYER_ACTION,
+                playerAttr: "shotType",
+                playerIdx: idx,
+                value: type
+            })
+        },
+        toggleShotTips: (idx)=>{
+            dispatch({
+                type: UPDATE_PLAYER_ACTION,
+                playerAttr: "shotTip",
+                playerIdx: idx,
+            })
         }
-
     }
 };
 
