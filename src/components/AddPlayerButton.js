@@ -8,8 +8,12 @@ export class AddPlayerButton extends React.Component{
         return(
             <div className={'container'}>
                 <img src={this.props.logoUrl} className={'teamLogo'} />
-                <Button type="dashed" ghost shape={'circle'} size={'default'} className={'addButton'}
-                        onClick={()=>this.props.addPlayerHandler(DEFAULT_COMPARE_PLAYER)}><b>+</b></Button>
+                <div className={'buttonBar'}>
+                    <Button type="dashed" ghost shape={'circle'} size={'default'} className={'removeButton'}
+                            onClick={()=>this.props.removePlayerHandler()}><b>-</b></Button>
+                    <Button type="dashed" ghost shape={'circle'} size={'default'} className={'addButton'}
+                            onClick={()=>this.props.addPlayerHandler(DEFAULT_COMPARE_PLAYER)}><b>+</b></Button>
+                </div>
             </div>
 
         )

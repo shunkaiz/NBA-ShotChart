@@ -28,6 +28,7 @@ class RawController extends React.Component{
     render(){
         const onClick = ({ key }) => {
             this.onSelected = key;
+            this.props.updateOnSelected(key);
             message.info(`Select on player ${key}`);
         };
         const menu = (

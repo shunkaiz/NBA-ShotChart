@@ -11,32 +11,18 @@ export class Profile extends React.Component{
     //     isMultiple : false,
     // };
 
-    handleAddPlayer = (playerName) =>{
-        // if(!this.state.isMultiple) {
-        //     this.props.addComparePlayer(playerName);
-        //     this.setState({
-        //         isMultiple: true
-        //     })
-        // }
-        this.addPlayerAction(playerName);
-    };
-
-    addPlayerAction = (playerName) =>{
-        this.props.addStorePlayer(playerName);
-    };
-
-
-
+    // handleAddPlayer = (playerName) => {
+    //     // if(!this.state.isMultiple) {
+    //     //     this.props.addComparePlayer(playerName);
+    //     //     this.setState({
+    //     //         isMultiple: true
+    //     //     })
+    //     // }
+    //     this.props.addStorePlayer(playerName);
+    // };
+    //
     handleRemovePlayer = () =>{
-        this.props.removeComparePlayer();
-        this.setState({
-            isMultiple: false
-        })
-    };
-
-    switchSelection = (val) =>{
-        // if(this.state.isMultiple)
-        //     this.props.changeSelectedPlayer(val);
+        this.props.removeStorePlayer(this.props.playerIdx);
     };
 
     render(){
@@ -49,13 +35,14 @@ export class Profile extends React.Component{
 
         return(
             <div className='profile'>
-                <div onClick={()=>this.switchSelection(0)} className={this.props.onSelected === 0 ? 'selected-border':null}>
                     <h2>{this.props.playerInfo.playerName}</h2>
                     <img src={`${PEOPLE_PIC_URL_PREFIX}/${playerId}.png`} className='profilePic'/>
-                    {window.localStorage.length > 0? < AddPlayerButton logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
-                        addPlayerHandler = {this.handleAddPlayer}/>:null
+                    {window.localStorage.length > 0? <AddPlayerButton
+                        logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
+                        addPlayerHandler = {this.props.addStorePlayer}
+                        removePlayerHandler = {this.handleRemovePlayer}
+                    />:null
                     }
-                </div>
                 <PlayerInfoTable playerInfo = {this.props.playerInfo}/>
             </div>
         );

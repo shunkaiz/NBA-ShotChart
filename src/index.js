@@ -50,24 +50,32 @@ const projectReducer = (state = [], action) =>{
         ]
     }
     else if(action.type === UPDATE_PLAYER_ACTION){
-        if(action.playerAttr === "shotCount"){
-            state[action.playerIdx].minCount = action.value;
-            console.log(state[action.playerIdx].minCount);
+        switch (action.playerAttr){
+            case "shotCount":
+                state[action.playerIdx].minCount = action.value;
+                console.log(state[action.playerIdx].minCount);
+                break;
+            case "shotType":
+                state[action.playerIdx].charType = action.value;
+                break;
+            case "shotTip":
+                state[action.playerIdx].disPlayToolTip = !state[action.playerIdx].disPlayToolTip;
+                break;
+            case "updatePlayer":
+                state[action.playerIdx] = playerConstructor(action.playerInfo);
+                break;
+            default:
+                break;
         }
-        else if(action.playerAttr === "shotType"){
-            state[action.playerIdx].charType = action.value;
-        }
-        else if(action.playerAttr === "shotTip"){
-            state[action.playerIdx].disPlayToolTip = !state[action.playerIdx].disPlayToolTip;
-        }
-        //console.log(state);
         return [
             ...state
         ];
     }
     else if(action.type === REMOVE_PLAYER_ACTION){
-        delete state[action.idx];
-        return state;
+        state.splice([action.playerIdx], 1);
+        return [
+            ...state
+        ];
     }
     else{
         return state;

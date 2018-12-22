@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/nba-logoman-word-white.svg';
 import {Icon} from 'antd'
-import {Link, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 export class TopNavBar extends React.Component{
 
     render(){

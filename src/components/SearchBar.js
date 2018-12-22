@@ -10,6 +10,11 @@ export class SearchBar extends React.Component {
         dataSource: [],
     };
 
+    constructor(){
+        super();
+        this.onSelected = 0;
+    }
+
     handleSearch = (value) => {
         this.setState({
             dataSource: !value ? [] :
@@ -21,8 +26,14 @@ export class SearchBar extends React.Component {
                     ),
                 });
     };
+
+    updateSelected = (val) =>{
+        console.log('updated');
+        this.onSelected = val;
+    };
+
     onSelect = (value) =>{
-        this.props.updatePlayerInfo(value);
+        this.props.updatePlayer(this.onSelected, value);
     };
     render() {
         window.nba = nba;

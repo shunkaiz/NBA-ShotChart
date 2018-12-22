@@ -1,24 +1,49 @@
 .container{
-    position: relative;
+    display: block;
 }
 
+.teamLogo{
+    width: var(--logo-width);
+    height: var(--logo-height);
+}
+
+.buttonBar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px 5px;
+}
 .addButton{
     color: lightskyblue;
     font-size: 14pt;
     border-color: lightskyblue;
-    position: absolute;
-    top: 150px;
-    bottom: 0;
-    left: 150px;
-    right: 0;
+    /*position: absolute;*/
+    /*top: 150px;*/
+    /*bottom: 0;*/
+    /*left: 150px;*/
+    /*right: 0;*/
     opacity: 0;
 }
 
-.teamLogo{
-    width: 200px;
-    height: 200px;
-}
+
 
 .container:hover .addButton{
+    opacity: 1;
+}
+
+
+.removeButton{
+    color: orangered;
+    font-size: 14pt;
+    border-color: orangered;
+    /*display: inline-block;*/
+    /*top: 150px;*/
+    /*bottom: 0;*/
+    /*left: 150px;*/
+    /*right: 0;*/
+    opacity: 0;
+}
+
+
+.container:hover .removeButton{
     opacity: 1;
 }

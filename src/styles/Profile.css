@@ -1,18 +1,17 @@
 .profile{
-    width: 200px;
+    width: var(--logo-width);
     background-color: cornsilk;
 }
 
 
 .profilePic{
-    width: 100%;
+    width: var(--logo-width);
+    height: var(--logo-height);
+
 }
 
-.teamLogo{
-    width: 100%;
-}
 
-profile div {
+.profile div {
     box-sizing: border-box;
 }
 
@@ -20,7 +19,7 @@ profile div {
     display: flex;
     align-items: center;
     width: 80%;
-    padding: 10px 10px 10px;
+    padding: 5px 10px 5px;
 }
 
 .profile-entry-left {
@@ -31,15 +30,13 @@ profile div {
 .profile-entry-right {
     text-align: right;
     flex: 1;
+    margin-left: 2px;
 }
 
 .profile-pic {
     width: 100%;
 }
 
-.team-logo {
-    width: 50%;
-}
 
 .player-name {
     text-align: center;
