@@ -1,6 +1,6 @@
 .player{
     display: flex;
-    width: 75%;
+    max-width: 800px;
     margin: auto;
     box-shadow: 5px 10px 10px #888;
     border: 3px solid moccasin;

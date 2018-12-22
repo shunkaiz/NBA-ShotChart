@@ -56,9 +56,7 @@ class MainRaw extends React.Component{
             <div className='dashBoard'>
                 <div className='searchBlock'><SearchBar updatePlayer = {this.props.updatePlayer}
                 ref = {this.searchBar}/></div>
-                <div>
-                    <Controller updateOnSelected = {this.updateSearchBarOnSelected}/>
-                </div>
+                <Controller updateOnSelected = {this.updateSearchBarOnSelected}/>
                 {this.props.players.map((player, idx) => {
                     return (<div className='player' key={idx}>
                         <Profile {...player}

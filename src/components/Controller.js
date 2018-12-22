@@ -56,7 +56,7 @@ class RawController extends React.Component{
                             <Radio value={'scatter'}>Scatter</Radio>
                         </RadioGroup>
                     </Col>
-                    <Col span={4}>
+                    <Col span={12}>
                         <span>ToolTips  </span>
                         <Switch checkedChildren= 'On'
                                 unCheckedChildren= 'Off'
