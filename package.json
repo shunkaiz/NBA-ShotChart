@@ -1,10 +1,12 @@
 {
-  "name": "nba-web",
+  "name": "NBA-ShotChart",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shunkaiz.github.io/NBA-ShotChart/",
   "dependencies": {
     "antd": "^3.9.2",
     "d3-shotchart": "0.0.2",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.5",
     "nba": "^4.2.2",
     "prop-types": "^15.6.2",
@@ -12,13 +14,21 @@
     "react-dom": "^16.3.1",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.1.1",
     "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
