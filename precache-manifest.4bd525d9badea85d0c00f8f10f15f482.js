@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/NBA-ShotChart/static/css/1.bd9652a2.chunk.css"
   },
   {
-    "revision": "c000e18abe1c7dde339273297ee7cf68",
+    "revision": "ba45919c428b75dc06c8c2a8484caaaa",
     "url": "/NBA-ShotChart/index.html"
   }
 ];
