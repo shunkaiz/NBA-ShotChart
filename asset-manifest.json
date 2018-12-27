@@ -1,7 +1,7 @@
 {
   "main.css": "/NBA-ShotChart/static/css/main.675e79bd.chunk.css",
-  "main.js": "/NBA-ShotChart/static/js/main.8f251c14.chunk.js",
-  "main.js.map": "/NBA-ShotChart/static/js/main.8f251c14.chunk.js.map",
+  "main.js": "/NBA-ShotChart/static/js/main.22a6320c.chunk.js",
+  "main.js.map": "/NBA-ShotChart/static/js/main.22a6320c.chunk.js.map",
   "static/css/1.e52346e2.chunk.css": "/NBA-ShotChart/static/css/1.e52346e2.chunk.css",
   "static/js/1.211f9307.chunk.js": "/NBA-ShotChart/static/js/1.211f9307.chunk.js",
   "static/js/1.211f9307.chunk.js.map": "/NBA-ShotChart/static/js/1.211f9307.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/media/nba-logoman-word-white.svg": "/NBA-ShotChart/static/media/nba-logoman-word-white.9470e2d5.svg",
   "static/css/1.e52346e2.chunk.css.map": "/NBA-ShotChart/static/css/1.e52346e2.chunk.css.map",
   "index.html": "/NBA-ShotChart/index.html",
-  "precache-manifest.e5e8667d6c674882996b68266fe0c40a.js": "/NBA-ShotChart/precache-manifest.e5e8667d6c674882996b68266fe0c40a.js",
+  "precache-manifest.431781858b4df3773d75f63b15fd0780.js": "/NBA-ShotChart/precache-manifest.431781858b4df3773d75f63b15fd0780.js",
   "service-worker.js": "/NBA-ShotChart/service-worker.js"
 }

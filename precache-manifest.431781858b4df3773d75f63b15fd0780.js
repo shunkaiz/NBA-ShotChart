@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/NBA-ShotChart/static/js/runtime~main.47b9ce55.js"
   },
   {
-    "revision": "8f251c14ae56a386d60e",
-    "url": "/NBA-ShotChart/static/js/main.8f251c14.chunk.js"
+    "revision": "22a6320c6807a455fea2",
+    "url": "/NBA-ShotChart/static/js/main.22a6320c.chunk.js"
   },
   {
     "revision": "211f9307e7781c6a059b",
     "url": "/NBA-ShotChart/static/js/1.211f9307.chunk.js"
   },
   {
-    "revision": "8f251c14ae56a386d60e",
+    "revision": "22a6320c6807a455fea2",
     "url": "/NBA-ShotChart/static/css/main.675e79bd.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/NBA-ShotChart/static/css/1.e52346e2.chunk.css"
   },
   {
-    "revision": "93fd8885a184f69ef128c6479669812e",
+    "revision": "1596d620e94343de814cde4014489a08",
     "url": "/NBA-ShotChart/index.html"
   }
 ];
