@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/NBA-ShotChart/precache-manifest.4d60ffc2c95644ad8ba1f543b1149f10.js"
+  "/NBA-ShotChart/precache-manifest.c46c41deebc305a5bd3b3742727e63b2.js"
 );
 
 workbox.clientsClaim();
