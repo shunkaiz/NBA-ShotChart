@@ -18,19 +18,28 @@ import  {createStore} from 'redux'
 
 function Routes() {
     return(
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={App}/>
-                <Route path='/login' component={LoginExport}/>
-                <Route path='/logout' component={Logout}/>
-            </Switch>
-        </BrowserRouter>
+        <App/>
+        //
+        // <BrowserRouter>
+        //     <Switch>
+        //         <Route exact path='/' component={App}/>
+        //         <Route path='/login' component={LoginExport}/>
+        //         <Route path='/logout' component={Logout}/>
+        //     </Switch>
+        // </BrowserRouter>
     )
 }
 
 function Project(){
     return(
         <Routes/>
+    )
+}
+
+
+function Project1(){
+    return(
+        <h1>Hello</h1>
     )
 }
 
@@ -88,7 +97,7 @@ console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Project/>
+        <Project1/>
     </Provider>
 
     , document.getElementById('root'));
