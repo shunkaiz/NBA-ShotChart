@@ -18,13 +18,15 @@ import  {createStore} from 'redux'
 
 function Routes() {
     return(
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={App}/>
-                <Route path='/login' component={LoginExport}/>
-                <Route path='/logout' component={Logout}/>
-            </Switch>
-        </BrowserRouter>
+        <App/>
+        //
+        // <BrowserRouter>
+        //     <Switch>
+        //         <Route exact path='/' component={App}/>
+        //         <Route path='/login' component={LoginExport}/>
+        //         <Route path='/logout' component={Logout}/>
+        //     </Switch>
+        // </BrowserRouter>
     )
 }
 

@@ -35,14 +35,20 @@ export class Profile extends React.Component{
 
         return(
             <div className='profile'>
-                    <h2>{this.props.playerInfo.playerName}</h2>
-                    <img src={`${PEOPLE_PIC_URL_PREFIX}/${playerId}.png`} className='profilePic'/>
-                    {window.localStorage.length > 0? <AddPlayerButton
-                        logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
-                        addPlayerHandler = {this.props.addStorePlayer}
-                        removePlayerHandler = {this.handleRemovePlayer}
-                    />:null
-                    }
+                <h2>{this.props.playerInfo.playerName}</h2>
+                <img src={`${PEOPLE_PIC_URL_PREFIX}/${playerId}.png`} className='profilePic'/>
+                <AddPlayerButton
+                    logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}
+                    addPlayerHandler = {this.props.addStorePlayer}
+                    removePlayerHandler = {this.handleRemovePlayer} />
+
+
+                {/*{window.localStorage.length > 0? <AddPlayerButton*/}
+                        {/*logoUrl = {`${TEAM_PIC_URL_PREFIX}/${teamAbbreviation}_logo.svg`}*/}
+                        {/*addPlayerHandler = {this.props.addStorePlayer}*/}
+                        {/*removePlayerHandler = {this.handleRemovePlayer}*/}
+                    {/*/>:null*/}
+                    {/*}*/}
                 <PlayerInfoTable playerInfo = {this.props.playerInfo}/>
             </div>
         );
