@@ -36,6 +36,13 @@ function Project(){
     )
 }
 
+
+function Project1(){
+    return(
+        <h1>Hello</h1>
+    )
+}
+
 const projectReducer = (state = [], action) =>{
     if(action.type === INIT_PLAYER_ACTION){
         // console.log(action.playerInfo);
@@ -90,7 +97,7 @@ console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Project/>
+        <Project1/>
     </Provider>
 
     , document.getElementById('root'));
